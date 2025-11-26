@@ -1,0 +1,30 @@
+{
+  "name": "qa-automation-portfolio-main",
+  "version": "1.0.0",
+  "description": "Automation QA portfolio with Cypress + JavaScript + Cucumber (BDD) and API testing (Postman/Cypress)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+
+  "prettier": {
+  "singleQuote": true
+  },
+
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/e2e"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^23.2.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.7",
+    "cypress": "^15.7.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  }
+}
