@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open --browser chrome",
-    "cy:run": "cypress run --browser chrome"
+    "cy:run": "cypress run --browser chrome",
+    "cy:run:smoke": "cypress run --env tags='@smoke'",
+    "cy:run:regression": "cypress run --env tags='@regression'"
   },
   "keywords": [],
   "author": "",
