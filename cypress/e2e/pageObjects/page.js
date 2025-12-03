@@ -1,6 +1,6 @@
 export default class Page {
     constructor() {
-        this.tittle = 'test'
+        this.title = 'test'
     }
 
     open(path)  {
