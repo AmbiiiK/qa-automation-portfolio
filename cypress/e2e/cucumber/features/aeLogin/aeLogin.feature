@@ -13,7 +13,7 @@ Feature: Automation Exercise login
     Then I should see an AE invalid credentials error
 
     Examples:
-      | email               | password        |
-      | UserTest123         | wrongPassword   |
-      | wrong@example.com   | XFr@B2DRvK23@aN |
-      | wrong@example.com   | wrongPassword   |
+      | email                   | password        |
+      | UserTest123@example.com | wrongPassword   |
+      | wrong@example.com       | XFr@B2DRvK23@aN |
+      | wrong@example.com       | wrongPassword   |
