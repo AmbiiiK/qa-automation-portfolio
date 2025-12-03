@@ -1,6 +1,6 @@
 import Page from './page'
 
-class LoginPage extends Page {
+class PracticeLoginPage extends Page {
     visit() {
         cy.visit('/login')
     }
@@ -35,4 +35,4 @@ class LoginPage extends Page {
 }
 
 
-export default new LoginPage();
+export default new PracticeLoginPage();

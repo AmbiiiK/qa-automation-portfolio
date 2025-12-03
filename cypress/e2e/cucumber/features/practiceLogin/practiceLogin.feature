@@ -5,7 +5,7 @@ Feature: Login
   Background:
     Given I open the login page
 
-  @test @smoke
+  @practice @smoke
   Scenario: 1) User is logged in
     When I login with username "practice" and password "SuperSecretPassword!"
     Then I should see that I am logged in
@@ -28,7 +28,7 @@ Feature: Login
     When I open the secure page directly
     Then I should be on the login page
 
-  @test @smoke
+  @practice @smoke
   Scenario: 4) User logs out
     Given I am logged in as "practice" with password "SuperSecretPassword!"
     When I log out
