@@ -17,7 +17,7 @@ jobs:
       - name: Cypress practice smoke
         uses: cypress-io/github-action@v6.10.4
         with:
-          command: npm run cy:run:practice:smoke
+          command: npm run cy:run:practice
 
       - name: Upload Cypress videos (practice)
         if: failure()
@@ -47,7 +47,7 @@ jobs:
           CYPRESS_AE_USER: ${{ secrets.AE_USER }}
           CYPRESS_AE_PASS: ${{ secrets.AE_PASS }}
         with:
-          command: npm run cy:run:ae:smoke
+          command: npm run cy:run:ae
 
       - name: Upload Cypress videos (AE)
         if: failure()
