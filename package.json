@@ -12,7 +12,7 @@
     "cy:open:practice": "cypress open --config baseUrl=https://practice.expandtesting.com",
     "cy:open:ae": "cypress open --config baseUrl=https://automationexercise.com",
     "cy:run:practice": "cypress run --spec 'cypress/e2e/cucumber/features/practiceLogin/*.feature' --config baseUrl=https://practice.expandtesting.com --env tags='@practice'",
-    "cy:run:ae": "cypress run 'cypress/e2e/cucumber/features/aeLogin/*.feature' --config baseUrl=https://automationexercise.com --env tags='@ae'",
+    "cy:run:ae": "cypress run --spec 'cypress/e2e/cucumber/features/aeLogin/*.feature' --config baseUrl=https://automationexercise.com --env tags='@ae'",
     "cy:open:automation": "cypress open --config baseUrl=https://automationexercise.com",
     "cy:run:api": "cypress run --spec 'cypress/e2e/api/**/*.cy.{js,ts}' --config baseUrl=https://automationexercise.com"
   },
