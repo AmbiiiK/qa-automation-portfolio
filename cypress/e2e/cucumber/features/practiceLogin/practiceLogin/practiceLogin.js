@@ -1,5 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import LoginPage from '../../../../pageObjects/login.page';
+import LoginPage from '../../../../pageObjects/practiceLogin.page';
 
 // ---------- Background ----------
 

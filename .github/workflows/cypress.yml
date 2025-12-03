@@ -7,28 +7,58 @@ on:
     branches: [ main ]
 
 jobs:
-  cypress-run:
+  practice-suite:
     runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Cypress run
+      - name: Cypress practice smoke
         uses: cypress-io/github-action@v6.10.4
         with:
-          command: npm run cy:run:smoke
+          command: npm run cy:run:practice:smoke
 
-      - name: Upload Cypress videos
-        if: always()
+      - name: Upload Cypress videos (practice)
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-videos
+          name: cypress-videos-practice
           path: cypress/videos
 
-      - name: Upload Cypress screenshots
-        if: always()
+      - name: Upload Cypress screenshots (practice)
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-screenshots
+          name: cypress-screenshots-practice
+          path: cypress/screenshots
+
+  ae-suite:
+    runs-on: ubuntu-24.04
+    needs: practice-suite
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Cypress AE smoke
+        uses: cypress-io/github-action@v6.10.4
+        env:
+          CYPRESS_AE_USER: ${{ secrets.AE_USER }}
+          CYPRESS_AE_PASS: ${{ secrets.AE_PASS }}
+        with:
+          command: npm run cy:run:ae:smoke
+
+      - name: Upload Cypress videos (AE)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos-ae
+          path: cypress/videos
+
+      - name: Upload Cypress screenshots (AE)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots-ae
           path: cypress/screenshots

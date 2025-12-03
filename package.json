@@ -8,17 +8,21 @@
     "cy:open": "cypress open --browser chrome",
     "cy:run": "cypress run --browser chrome",
     "cy:run:smoke": "cypress run --env tags='@smoke'",
-    "cy:run:regression": "cypress run --env tags='@regression'"
+    "cy:run:regression": "cypress run --env tags='@regression'",
+    "cy:open:practice": "cypress open --config baseUrl=https://practice.expandtesting.com",
+    "cy:open:ae": "cypress open --config baseUrl=https://automationexercise.com",
+    "cy:run:practice": "cypress run --spec 'cypress/e2e/cucumber/features/practiceLogin/*.feature' --config baseUrl=https://practice.expandtesting.com --env tags='@practice'",
+    "cy:run:ae": "cypress run --config baseUrl=https://automationexercise.com --env tags='@ae'",
+    "cy:open:automation": "cypress open --config baseUrl=https://automationexercise.com",
+    "cy:run:api": "cypress run --spec 'cypress/e2e/api/**/*.cy.{js,ts}' --config baseUrl=https://automationexercise.com"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-
   "prettier": {
-  "singleQuote": true
+    "singleQuote": true
   },
-
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "stepDefinitions": "cypress/e2e"
@@ -27,6 +31,9 @@
     "@badeball/cypress-cucumber-preprocessor": "^23.2.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.7",
     "cypress": "^15.7.0",
-    "cypress-cucumber-preprocessor": "^4.3.1"
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-mochawesome-reporter": "^3.8.4",
+    "cypress-plugin-api": "^2.11.2",
+    "typescript": "^5.9.3"
   }
 }
