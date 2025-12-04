@@ -79,4 +79,6 @@ jobs:
         env:
           AE_USER: ${{ secrets.AE_USER }}
           AE_PASS: ${{ secrets.AE_PASS }}
+          AE_BASE_URL: ${{ vars.AE_BASE_URL }}
+
         run: npm run test:api

@@ -144,3 +144,4 @@ cypress/screenshots
 cypress/reports
 mochaawesome-report/
 coverage/
+postman-api-tests/automation_exercise_env.json
