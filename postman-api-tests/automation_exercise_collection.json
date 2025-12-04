@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "543d2775-f9bd-4f5e-a566-ee2697b0aa4f",
+		"name": "Automation Exercise",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50341695"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Get All Products List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/productsList",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/brandsList",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET user account detail by email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "usertest123@gmail.com",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}api/getUserDetailByEmail?email=usertest123@gmail.com",
+							"host": [
+								"{{baseURL}}api"
+							],
+							"path": [
+								"getUserDetailByEmail"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "usertest123@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "POST To All Products List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/productsList",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "POST To Search Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "search_product",
+									"value": "top",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/searchProduct",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"searchProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST To Search Product without search product parameter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/searchProduct",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"searchProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST To Verify Login with valid credentionals",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "usertest123@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "XFr@B2DRvK23@aN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/verifyLogin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"verifyLogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST To Verify Login with valid credentionals BR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "usertest123@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "XFr@B2DRvK23@aN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/verifyLogin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"verifyLogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST To Verify login with invalid details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "wrong@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1111111",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/verifyLogin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"verifyLogin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "PUT To All Brands list",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/brandsList",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT METHOD To Update User Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": " Postman",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postman@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1111111",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": " Mr",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": " 29",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": " 09",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": " 1999",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": " Aloha",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": " Dance",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": " postman s.r.o",
+									"type": "text"
+								},
+								{
+									"key": "adress1",
+									"value": " nothing",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/createAccount",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"createAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "DELETE To Verify Login",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "usertest123@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "XFr@B2DRvK23@aN",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/verifyLogin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"verifyLogin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
