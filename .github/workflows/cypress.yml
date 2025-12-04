@@ -70,5 +70,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Run Postman API tests
+        env:
+          AE_USER: ${{ secrets.AE_USER }}
+          AE_PASS: ${{ secrets.AE_PASS }}
         run: npm run test:api
