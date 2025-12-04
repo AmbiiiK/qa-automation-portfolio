@@ -70,10 +70,5 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Run Postman API tests (install Newman + run)
-        run: |
-          npm install -g newman
-          newman run postman-api-tests/automation_exercise_collection.json \
-            --env-var "baseUrl=https://automationexercise.com/" \
-            --env-var "user=${AE_USER}" \
-            --env-var "password=${AE_PASSWORD}"
+      - name: Run Postman API tests
+        run: npm run test:api
