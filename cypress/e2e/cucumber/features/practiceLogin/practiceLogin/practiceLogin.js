@@ -1,4 +1,4 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import LoginPage from '../../../../pageObjects/practiceLogin.page';
 
 // ---------- Background ----------
@@ -19,11 +19,6 @@ Then('I should see that I am logged in', () => {
     LoginPage.popUp().should('contain.text', 'You logged into a secure area!');
 });
 
-When('I login with invalid credentials', () => {
-    LoginPage.visit();
-    LoginPage.login('wrongUser', 'wrongPassword!');
-});
-
 Then('I should see an invalid credentials error', () => {
     LoginPage.popUp().should('contain.text', 'Your password is invalid!');
 });
@@ -37,6 +32,7 @@ When('I open the secure page directly', () => {
 Then('I should be on the login page', () => {
     cy.url().should('eq', `${Cypress.config('baseUrl')}/login`);
     LoginPage.username().should('be.visible');
+    LoginPage.popUp().should('contain.text', 'You must login to view the secure area!');
 });
 
 // ---------- Logout scenario ----------

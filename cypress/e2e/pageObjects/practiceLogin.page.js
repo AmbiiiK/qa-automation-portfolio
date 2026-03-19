@@ -1,6 +1,4 @@
-import Page from './page'
-
-class PracticeLoginPage extends Page {
+class PracticeLoginPage {
     visit() {
         cy.visit('/login')
     }
