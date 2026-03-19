@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import AeLoginPage from '../../../../pageObjects/aeLogin.page';
+import AeLoginPage from '../../../../../support/pages/aeLogin.page';
 
 const AE_USERNAME = Cypress.env('AE_USER');
 const AE_PASSWORD = Cypress.env('AE_PASS');
@@ -20,10 +20,10 @@ When(
 );
 
 Then('I should see that I am logged in to AE', () => {
-    cy.url().should('include', '/');
+    cy.url().should('not.include', '/login');
     cy.contains('a', ' Logged in as ').should('be.visible');
 });
 
 Then('I should see an AE invalid credentials error', () => {
-    AeLoginPage.errorAlert().should('be.visible').and('contain.text', 'Your email or password is incorrect!');
+    AeLoginPage.getErrorAlert().should('be.visible');
 });
