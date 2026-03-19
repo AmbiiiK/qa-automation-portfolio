@@ -7,7 +7,7 @@ Feature: Login
 
   @practice @smoke
   Scenario: User logs in with valid credentials
-    When I login with username "practice" and password "SuperSecretPassword!"
+    When I login as a valid user
     Then I should see that I am logged in
 
   @practice
@@ -28,6 +28,6 @@ Feature: Login
 
   @practice @smoke
   Scenario: User logs out
-    Given I am logged in as "practice" with password "SuperSecretPassword!"
+    Given I am logged in as a valid user
     When I log out
     Then I should be logged out
